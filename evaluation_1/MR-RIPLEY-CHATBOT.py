@@ -1,12 +1,36 @@
 from speakeasypy import Speakeasy, Chatroom
 from typing import List
 import time
-import utils as u
+import utils
 
 DEFAULT_HOST_URL = 'https://speakeasy.ifi.uzh.ch'
 listen_freq = 2
 
+correct_sparql_format =  '''
+ PREFIX ddis: <http://ddis.ch/atai/>   
 
+PREFIX wd: <http://www.wikidata.org/entity/>   
+
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>   
+
+PREFIX schema: <http://schema.org/>   
+
+  
+
+SELECT ?lbl WHERE {  
+
+    ?movie wdt:P31 wd:Q11424 .  
+
+    ?movie ddis:rating ?rating .  
+
+    ?movie rdfs:label ?lbl .  
+
+}  
+
+ORDER BY DESC(?rating)   
+
+LIMIT 1 
+'''
 
 
 class Agent:
@@ -15,7 +39,7 @@ class Agent:
         # Initialize the Speakeasy Python framework and login.
         self.speakeasy = Speakeasy(host=DEFAULT_HOST_URL, username=username, password=password)
         self.speakeasy.login()  # This framework will help you log out automatically when the program terminates.
-        self.graph = u.load_graphs()
+        self.graph = utils.load_graphs()
 
     def listen(self):
         while True:
@@ -24,7 +48,7 @@ class Agent:
             for room in rooms:
                 if not room.initiated:
                     # send a welcome message if room is not initiated
-                    room.post_messages(f'Hello! This is Chatbot Mr.Ripley!\n\n{room.my_alias}.')
+                    room.post_messages(f'Hello! This is Chatbot Mr. Ripley \n\n{room.my_alias}. Please input a SPARQL Query ')
                     room.initiated = True
                 # Retrieve messages from this chat room.
                 # If only_partner=True, it filters out messages sent by the current bot.
@@ -36,18 +60,20 @@ class Agent:
                         f"- {self.get_time()}")
 
                     # Implement your agent here #
-                    # TODO:
-                    # - Get a SPARQL request
-                    # - Send back the answer
-                    responses = self.graph.query(str(message.message))
-                    res_list = [str(result) for result, in responses]
-                    print(res_list)
+                    try:
+                        print(message.message)
+                        responses = self.graph.query(str(message.message))
+                        res_list = [str(result) for result, in responses]
+                        print(res_list)
 
-                    # Send a message to the corresponding chat room using the post_messages method of the room object.
-                    room.post_messages(f"Answer...\n{res_list}")
-                    # room.post_messages(f"Received your message: '{message.message}' ")
-                    # Mark the message as processed, so it will be filtered out when retrieving new messages.
-                    room.mark_as_processed(message)
+                        # Send a message to the corresponding chat room using the post_messages method of the room object.
+                        room.post_messages(f"Answer...\n{res_list}")
+                        # room.post_messages(f"Received your message: '{message.message}' ")
+                        # Mark the message as processed, so it will be filtered out when retrieving new messages.
+                        room.mark_as_processed(message)
+                    except:
+                        room.post_messages(f"I don't understand this! Please send a valid SPARQL querry it! Example: \n {correct_sparql_format}")
+                        room.mark_as_processed(message)
 
                 # Retrieve reactions from this chat room.
                 # If only_new=True, it filters out reactions that have already been marked as processed.
@@ -67,10 +93,6 @@ class Agent:
     @staticmethod
     def get_time():
         return time.strftime("%H:%M:%S, %d-%m-%Y", time.localtime())
-
-
-
-
 
 
 if __name__ == '__main__':

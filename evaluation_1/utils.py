@@ -3,7 +3,6 @@ from rdflib.term import URIRef, Literal
 import rdflib
 
 
-
 def load_graphs():
     graph = rdflib.Graph()
     print("Please wait while graph is loading ...")
