@@ -6,6 +6,7 @@ import utils
 DEFAULT_HOST_URL = 'https://speakeasy.ifi.uzh.ch'
 listen_freq = 2
 
+REF_SPARQL_FORM =  "PREFIX ... SELECT ... WHERE ... ..."
 
 class Agent:
     def __init__(self, username, password):
@@ -34,30 +35,57 @@ class Agent:
                         f"- {self.get_time()}")
 
                     # Implement your agent here #
-                    try:
-                        responses = self.graph.query(str(message.message))
-                        res_list = [str(result) for result, in responses]
-                        print(res_list)
+                    # Logic for 1st evaluation.
+                    msg = str(message.message)
+                    q_type = utils.check_q_type(msg) # Check the type of question for further scailability.
 
-                        # Send a message to the corresponding chat room using the post_messages method of the room object.
-                        room.post_messages(f"{res_list}")
-                        # Mark the message as processed, so it will be filtered out when retrieving new messages.
-                        room.mark_as_processed(message)
-                    except:
-                        room.post_messages("Please send a valid SPARQL querry!")
-                        room.mark_as_processed(message)
+                    if q_type == "SPARQL":
+                        sparql = utils.sparql_parser(msg) # Added to clean the request and retrive only SPARQL statement.
+                        
+                        try:
+                            responses = self.graph.query(sparql)
+                            responses_list = [str(result) for result, in responses]
+                            # print(f"\nCHECKPOINT:\n{responses_list}")
 
-                # Retrieve reactions from this chat room.
-                # If only_new=True, it filters out reactions that have already been marked as processed.
-                # for reaction in room.get_reactions(only_new=True):
-                #     print(
-                #         f"\t- Chatroom {room.room_id} "
-                #         f"- new reaction #{reaction.message_ordinal}: '{reaction.type}' "
-                #         f"- {self.get_time()}")
-                #     # Implement your agent here #
-                #     room.post_messages(f"Received your reaction: '{reaction.type}' ")
-                #     room.mark_as_processed(reaction)
+                            post_messages = f"This is the information you are looking for!"
+                            room.post_messages(post_messages)
+                            post_messages = str(responses_list)
+                            room.post_messages(post_messages)
 
+                        except:
+                            post_messages = f"Hmm... I am in a fog"
+                            room.post_messages(post_messages)
+                            post_messages = f"Please send a valid SPARQL query!"
+                            room.post_messages(post_messages)
+                    
+                    else:
+                        post_messages = f"Sorry... I couldn't recognize what you are asking."
+                        room.post_messages(post_messages)
+                        post_messages = f"I am really good at finding information based on SPARQL though."
+                        room.post_messages(post_messages)
+                        post_messages = f"How about giving me a question in a SPARQL format like below?"
+                        room.post_messages(post_messages)
+                        post_messages = REF_SPARQL_FORM
+                        room.post_messages(post_messages)
+                    
+                    # Set this message in this room as a processed one.
+                    # To prevent duplicate tasks.
+                    room.mark_as_processed(message)
+
+                """
+                Retrieve reactions from this chat room.
+                Not using at this moment.
+                If only_new=True, it filters out reactions that have already been marked as processed.
+                for reaction in room.get_reactions(only_new=True):
+                    print(
+                        f"\t- Chatroom {room.room_id} "
+                        f"- new reaction #{reaction.message_ordinal}: '{reaction.type}' "
+                        f"- {self.get_time()}")
+                    # Implement your agent here #
+                    room.post_messages(f"Received your reaction: '{reaction.type}' ")
+                    room.mark_as_processed(reaction)
+                """
+                
             time.sleep(listen_freq)
 
     @staticmethod
