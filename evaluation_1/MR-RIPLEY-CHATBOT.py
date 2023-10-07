@@ -6,32 +6,6 @@ import utils
 DEFAULT_HOST_URL = 'https://speakeasy.ifi.uzh.ch'
 listen_freq = 2
 
-correct_sparql_format =  '''
- PREFIX ddis: <http://ddis.ch/atai/>   
-
-PREFIX wd: <http://www.wikidata.org/entity/>   
-
-PREFIX wdt: <http://www.wikidata.org/prop/direct/>   
-
-PREFIX schema: <http://schema.org/>   
-
-  
-
-SELECT ?lbl WHERE {  
-
-    ?movie wdt:P31 wd:Q11424 .  
-
-    ?movie ddis:rating ?rating .  
-
-    ?movie rdfs:label ?lbl .  
-
-}  
-
-ORDER BY DESC(?rating)   
-
-LIMIT 1 
-'''
-
 
 class Agent:
     def __init__(self, username, password):
@@ -48,7 +22,7 @@ class Agent:
             for room in rooms:
                 if not room.initiated:
                     # send a welcome message if room is not initiated
-                    room.post_messages(f'Hello! This is Chatbot Mr. Ripley \n\n{room.my_alias}. Please input a SPARQL Query ')
+                    room.post_messages(f'Hello! This is mr_ripley_ \n\n{room.my_alias}. Please input a SPARQL Query.')
                     room.initiated = True
                 # Retrieve messages from this chat room.
                 # If only_partner=True, it filters out messages sent by the current bot.
@@ -61,32 +35,28 @@ class Agent:
 
                     # Implement your agent here #
                     try:
-                        print(message.message)
                         responses = self.graph.query(str(message.message))
                         res_list = [str(result) for result, in responses]
                         print(res_list)
 
                         # Send a message to the corresponding chat room using the post_messages method of the room object.
-                        room.post_messages(f"Answer...\n{res_list}")
-                        # room.post_messages(f"Received your message: '{message.message}' ")
+                        room.post_messages(f"{res_list}")
                         # Mark the message as processed, so it will be filtered out when retrieving new messages.
                         room.mark_as_processed(message)
                     except:
-                        room.post_messages(f"I don't understand this! Please send a valid SPARQL querry it! Example: \n {correct_sparql_format}")
+                        room.post_messages("Please send a valid SPARQL querry!")
                         room.mark_as_processed(message)
 
                 # Retrieve reactions from this chat room.
                 # If only_new=True, it filters out reactions that have already been marked as processed.
-                for reaction in room.get_reactions(only_new=True):
-                    print(
-                        f"\t- Chatroom {room.room_id} "
-                        f"- new reaction #{reaction.message_ordinal}: '{reaction.type}' "
-                        f"- {self.get_time()}")
-
-                    # Implement your agent here #
-
-                    room.post_messages(f"Received your reaction: '{reaction.type}' ")
-                    room.mark_as_processed(reaction)
+                # for reaction in room.get_reactions(only_new=True):
+                #     print(
+                #         f"\t- Chatroom {room.room_id} "
+                #         f"- new reaction #{reaction.message_ordinal}: '{reaction.type}' "
+                #         f"- {self.get_time()}")
+                #     # Implement your agent here #
+                #     room.post_messages(f"Received your reaction: '{reaction.type}' ")
+                #     room.mark_as_processed(reaction)
 
             time.sleep(listen_freq)
 
