@@ -163,3 +163,7 @@ cython_debug/
 
 # Ignore the dataset folder
 */data
+
+# Ignore miscellaneous
+tmp.*
+.DS_Store
