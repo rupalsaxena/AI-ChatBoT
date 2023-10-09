@@ -1,7 +1,12 @@
 from rdflib.namespace import Namespace, RDF, RDFS, XSD
 from rdflib.term import URIRef, Literal
 import rdflib
+import re
 
+def remove_special_characters(input_string):
+    pattern = r'[^\w\s]'
+    clean_string = re.sub(pattern, '', input_string)
+    return clean_string
 
 def load_graphs():
     graph = rdflib.Graph()
