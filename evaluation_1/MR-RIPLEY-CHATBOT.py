@@ -36,20 +36,21 @@ class Agent:
                     # Implement your agent here #
                     # Logic for 1st evaluation.
                     msg = str(message.message)
-                    q_type = utils.check_q_type(msg) # Check the type of question for further scailability.
+                    q_type = "SPARQL" #utils.check_q_type(msg) # Check the type of question for further scailability.
 
                     if q_type == "SPARQL":
                         #sparql = utils.sparql_parser(msg) # Added to clean the request and retrive only SPARQL statement.
                         try:
                             responses = self.graph.query(msg)
                             responses_list = [utils.remove_special_characters(str(result)) for result, in responses]
+                            print(responses_list)
 
                             post_messages = f"Here is the information you are looking for. {responses_list}"
                             room.post_messages(post_messages)
 
                         except Exception as error:
                             print(error)
-                            post_messages = f"Hmm... I am in a fog. Please send a valid SPARQL query!"
+                            post_messages = f"Hmm... I am in a fog. Please send a valid SPARQL query! {error}"
                             room.post_messages(post_messages)
                     
                     else:
