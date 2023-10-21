@@ -57,8 +57,23 @@ class Graphs:
         res_list = [str(result.elementLabel) for result in responses]
         return res_list
 
+    def queryMovieReleaseDates(self, ent):
+        query = '''
+        PREFIX wd: <http://www.wikidata.org/entity/>
+        PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+
+        SELECT ?item
+        WHERE {
+        wd:%s wdt:P577 ?item.
+        }
+        '''%(ent)
+        responses = self.graph.query(query)
+        res_list = [str(result.item) for result in responses]
+        return res_list
+
 
 if __name__=="__main__":
     g = Graphs()
+    g.queryMovieReleaseDates("Q47703")
     g.queryMultimedia("Q1033016")
     g.queryFactual("Q223596", "P162")

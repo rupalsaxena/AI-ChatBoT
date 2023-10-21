@@ -64,8 +64,25 @@ def getAllCharacters(graph):
             }
         ''')]
 
+def getAllPreds(graph):
+    query = '''
+    SELECT DISTINCT ?predicate ?predicateLabel
+    WHERE {
+    ?subject ?predicate ?object.
+    ?predicate rdfs:label ?predicateLabel.
+    FILTER(LANG(?predicateLabel) = "en").
+    }
+    '''
+    responses = graph.query(query)
+    return [ [str(predicate), str(predicateLabel)] for predicate, predicateLabel in responses]
+
 if __name__=="__main__":
     graph = load_graphs()
+    preds = getAllPreds(graph=graph)
+    with open('data/all_predicates_new.csv', 'w') as f:
+        write = csv.writer(f)
+        write.writerow(["ids", "names"])
+        write.writerows(preds)
     movies = getAllMovies(graph)
     with open('data/all_movies.csv', 'w') as f:
         write = csv.writer(f)
@@ -95,5 +112,3 @@ if __name__=="__main__":
         write = csv.writer(f)
         write.writerow(["ids", "names"])
         write.writerows(characters)
-
-    

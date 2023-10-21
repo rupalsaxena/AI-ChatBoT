@@ -17,19 +17,23 @@ class Question:
         self.responses = []
         self.embed = self.prior_obj.get_emb_obj()
         ent_dict = self.recognize_entities()
-        pred_ids = self.recognize_predicate(ent_dict)
+        preds, pred_ids = self.recognize_predicate(ent_dict)
+        print("predicate:", preds, pred_ids)
         if len(ent_dict)>0 and len(pred_ids)>0:
             self.process(ent_dict, pred_ids)
         self.chooseResponse()
 
     def process(self, ent_dict, pred_ids):
-        # factual query 
+        # factual query
         self.fact_resp = []
         for label in ent_dict:
             ent_id = ent_dict[label]["id"]
             if ent_id != -1:
                 for pred_id in pred_ids:
-                    response = self.graph.queryFactual(ent_id, pred_id)
+                    if pred_id == "P577":
+                        response = self.graph.queryMovieReleaseDates(ent_id)
+                    else:  
+                        response = self.graph.queryFactual(ent_id, pred_id)
                     self.fact_resp.extend(response)
         
         # embedding query
@@ -60,14 +64,19 @@ class Question:
         # remove entities from predicates
         msg = self.msg
         for label in ent_dict:
+            # if entity name is more than one word then remove all words from msg
+            ent_words = label.split(" ")
             id = ent_dict[label]["id"]
             if id != -1:
-                msg = msg.replace(label, "")
+                # replace all entities from main msg
+                for ent_word in ent_words:
+                    msg = msg.replace(ent_word, "")
+
         # recognize predicates
         all_preds = self.prior_obj.get_all_predicates()
         rp = RecognizePredicate(msg, prior=all_preds)
         preds, pred_ids = rp.get_predicate_ID()
-        return pred_ids
+        return preds, pred_ids
 
     def chooseResponse(self):
         if len(self.responses) > 1:
