@@ -44,7 +44,7 @@ class Embeddings:
             most_likely = dist.argsort()
             df = pd.DataFrame([(self.id2ent[idx][len(WD):], self.ent2lbl[self.id2ent[idx]], dist[idx], rank+1) for rank, idx in enumerate(most_likely[:4])], columns=('Entity', 'Label', 'Score', 'Rank'))
             print(df)
-            return [df["Label"].values[0], df["Label"].values[1]]
+            return [df["Label"].values[0], df["Label"].values[1], df["Label"].values[2]]
         except:
             print("embedings failing")
             return [-1, -1]

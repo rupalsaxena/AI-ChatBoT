@@ -1,12 +1,16 @@
+import csv
+from datetime import datetime
 from speakeasypy import Speakeasy, Chatroom
 from typing import List
 import time
 from Algorithm import getResponse
 from Preprocess import Preprocess
+from utils import log_to_csv
 
 DEFAULT_HOST_URL = 'https://speakeasy.ifi.uzh.ch'
 listen_freq = 2
 DEFAULT_MSG = "I don't understand you. Can you rephrase it?"
+LOG_FILENAME = "logging/logged_data.csv"
 
 class Agent:
     def __init__(self, username, password, prior_obj):
@@ -29,6 +33,7 @@ class Agent:
                 # If only_partner=True, it filters out messages sent by the current bot.
                 # If only_new=True, it filters out messages that have already been marked as processed.
                 for message in room.get_messages(only_partner=True, only_new=True):
+                    msg_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                     print(
                         f"\t- Chatroom {room.room_id} "
                         f"- new message #{message.ordinal}: '{message.message}' "
@@ -39,7 +44,9 @@ class Agent:
                         print(err)
                         reply = DEFAULT_MSG
                     room.post_messages(reply)
+                    reply_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                     room.mark_as_processed(message)
+                    log_to_csv(LOG_FILENAME, message.message, msg_time, reply, reply_time)
 
                 
                 # Retrieve reactions from this chat room.
@@ -64,13 +71,3 @@ if __name__ == '__main__':
     prior_obj = Preprocess()
     demo_bot = Agent("swelter-animato-kitchen_bot", "sLGLWSn0901EVg", prior_obj)
     demo_bot.listen()
-
-
-
-
-"""
-TODO:
-Log received and response messages in csv format
-return 3 embeddings top
-MPAA question is giving wrong order of answers 
-"""
