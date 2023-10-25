@@ -6,8 +6,6 @@ from Preprocess import Preprocess
 
 DEFAULT_HOST_URL = 'https://speakeasy.ifi.uzh.ch'
 listen_freq = 2
-
-ENTRY_MSG = "Hello, I am Griot. Type HELP in chat box to understand the types of questions I can answer! Looking forward to interact with you :D"
 DEFAULT_MSG = "I don't understand you. Can you rephrase it?"
 
 class Agent:
@@ -25,7 +23,7 @@ class Agent:
             for room in rooms:
                 if not room.initiated:
                     # send a welcome message if room is not initiated
-                    room.post_messages(f'Hello! This is mr_ripley_ \n\n{room.my_alias}. Please input a SPARQL Query.')
+                    room.post_messages(f'Hello! This is mr_ripley_{room.my_alias}. I am a masters student in Film Studies. Feel free to ask me movie related questions :)')
                     room.initiated = True
                 # Retrieve messages from this chat room.
                 # If only_partner=True, it filters out messages sent by the current bot.
@@ -66,3 +64,13 @@ if __name__ == '__main__':
     prior_obj = Preprocess()
     demo_bot = Agent("swelter-animato-kitchen_bot", "sLGLWSn0901EVg", prior_obj)
     demo_bot.listen()
+
+
+
+
+"""
+TODO:
+Log received and response messages in csv format
+return 3 embeddings top
+MPAA question is giving wrong order of answers 
+"""
