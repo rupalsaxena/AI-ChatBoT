@@ -1,15 +1,13 @@
 import random
 from Levenshtein import distance
 from EntityRecognition import EntityRecognition
+from PredicateRecognition import RecognizePredicate
 
 DEFAULT_RESPONSES = [
     "I don't find any suitable recommendation for you! Do you want me to look for something else?",
     "I don't find any recommendation for you. Can I help you with something else?",
     "I am not sure I understand it properly. Try to rephrase it.",
 ]
-
-# TODO: handle genre recommendation serperately 
-# TODO: movies for humans
 
 class Recommend:
     def __init__(self, msg, graph, prior_obj):
@@ -19,24 +17,62 @@ class Recommend:
         self.embed = self.prior_obj.get_emb_obj()
         self.responses = []
         self.ent_dict = self.recognize_entities()
-        if len(self.ent_dict) > 0:
+        self.preds, self.pred_ids = self.recognize_predicate(self.ent_dict)
+        print("predicate:", self.preds, self.pred_ids)
+        if len(self.ent_dict)>0:
             self.process()
         self.chooseResponse()
-    
+
     def process(self):
+        if len(self.pred_ids) > 0:
+            for label in self.ent_dict:
+                self.emb_resp = []
+                for pred_id in self.pred_ids:
+                    recos_emb = self.embed.apply_embedding(self.ent_dict[label]["id"], pred_id)
+                    if recos_emb[0] != -1:
+                        self.emb_resp.extend(recos_emb)
+                self.responses.extend(self.emb_resp)
+
+                if len(self.responses) < 1:
+                    self.get_reco_from_ent()
+        else:
+            self.get_reco_from_ent()
+                
+
+    def get_reco_from_ent(self):
         for label in self.ent_dict:
             if self.ent_dict[label]["tag"] == "ACTOR":
                 recos = self.graph.queryActor(self.ent_dict[label]["id"])
+            elif self.ent_dict[label]["tag"] == "DIRECTOR":
+                recos = self.graph.queryMoviesfromDirector(self.ent_dict[label]["id"])
             elif self.ent_dict[label]["tag"] == "GENRE":
                 recos = self.graph.queryMoviesfromGenres(self.ent_dict[label]["id"])
             else:
                 recos = self.embed.find_similar_entities(self.ent_dict[label]["id"])
             self.responses.extend(recos)
-
+    
     def recognize_entities(self):
         er = EntityRecognition(self.msg, prior_obj=self.prior_obj)
         ent_dict = er.process()
         return ent_dict
+
+    def recognize_predicate(self, ent_dict):
+        # remove entities from predicates
+        msg = self.msg
+        for label in ent_dict:
+            # if entity name is more than one word then remove all words from msg
+            ent_words = label.split(" ")
+            id = ent_dict[label]["id"]
+            if id != -1:
+                # replace all entities from main msg
+                for ent_word in ent_words:
+                    msg = msg.replace(ent_word, "")
+
+        # recognize predicates
+        all_preds = self.prior_obj.get_all_predicates()
+        rp = RecognizePredicate(msg, prior=all_preds)
+        preds, pred_ids = rp.get_predicate_ID()
+        return preds, pred_ids
 
     def chooseResponse(self):
         if len(self.responses) > 1:

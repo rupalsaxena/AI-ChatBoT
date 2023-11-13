@@ -47,7 +47,7 @@ class Embeddings:
             return [df["Label"].values[0], df["Label"].values[1], df["Label"].values[2]]
         except:
             print("embedings failing")
-            return [-1, -1]
+            return [-1, -1, -1]
     
     def find_similar_entities(self, id):
         try:

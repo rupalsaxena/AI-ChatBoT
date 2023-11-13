@@ -71,12 +71,3 @@ if __name__ == '__main__':
     prior_obj = Preprocess()
     demo_bot = Agent("swelter-animato-kitchen_bot", "sLGLWSn0901EVg", prior_obj)
     demo_bot.listen()
-
-# TODOS:
-# when there was a spelling mistake of word recommendation, question recognition failed. Test again to verify. 
-# Question: Recomend me movies which are released in 2022.
-# Question: Recommend me director of Comedy Movies.
-
-# BACKLOG:
-# special word character like german words
-# Weathering is closer to Gathering and that's why we have wrong id -> one solution would be in embedding should be directly querried with name

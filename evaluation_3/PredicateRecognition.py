@@ -29,7 +29,7 @@ class RecognizePredicate:
         if len(predicates) >= 1:
             return (predicates, IDs)
         else:
-            predicates, IDs = self.find_similar_words(cutoff=0.6)
+            predicates, IDs = self.find_similar_words(cutoff=0.7)
             if len(predicates) >= 1:
                 return (predicates, IDs)
             else:
