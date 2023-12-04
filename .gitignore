@@ -161,8 +161,10 @@ cython_debug/
 
 
 
-# Ignore the dataset folder
+# Ignore the dataset and model folder
+data
 */data
+*/models
 
 # Ignore miscellaneous
 tmp.*

@@ -7,6 +7,7 @@ from flair.models import SequenceTagger
 from Graphs import Graphs
 from QuestionRecognition import QuestionRecognition
 from Embeddings import Embeddings
+from Crowdsourcing import Crowdsourcing
 
 class Preprocess:
     def __init__(self):
@@ -16,10 +17,11 @@ class Preprocess:
         self.load_default_data()
         self.load_NER_model()
         self.load_images()
-        self.g = Graphs()
+        self.g = Graphs() # None
         self.question_model = QuestionRecognition()
         self.embed_obj = Embeddings(self.g.get_graph())
-    
+        self.crowd_obj = Crowdsourcing(self.all_entities)
+        
     def load_NER_model(self):
         print("loading NER model")
         self.ner_model = SequenceTagger.load("models/ner.pt")
@@ -125,6 +127,9 @@ class Preprocess:
             if word not in stop_words:
                 filtered_input.append(word)
         return filtered_input
+
+    def get_crowd_obj(self):
+        return self.crowd_obj
 
 if __name__=="__main__":
     p = Preprocess()

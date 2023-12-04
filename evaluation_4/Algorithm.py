@@ -33,7 +33,7 @@ class Algorithm:
             # question detection
             question_model = self.prior_obj.get_question_model()
             category = question_model.get_question_category(input.lower())
-
+            print(f"Question Category : {category}")
             if category != -1:
                 # process each type of question
                 if category == "multimedia":
