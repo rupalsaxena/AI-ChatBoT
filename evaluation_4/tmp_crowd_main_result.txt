@@ -1,0 +1,90 @@
+!Results from main.py!
+  
+... All Success ... but,
+
+Question: Can you tell me the publication date of Tom Meets Zizou?
+Can you tell me the publication date of Tom Meets Zizou?
+Question Category : multimedia
+{'Tom Meets Zizou': {'tag': 'TITLE', 'id': 'Q1410031'}}
+[]
+response: I am sorry but I don't find any suitable results for you. Can I help you with something else?
+
+###############################################################
+QuestionRecognition
+'publication date' was not recognized as 'question' type, but 'multimedia'
+But, it could be fine if we use text_categorizer.
+Because of some error to import classifier model, I used classy_classification...
+Spacy library version on my local: 3.7.2
+###############################################################
+  
+  
+Question: Who is the executive producer of X-Men: First Class?
+Who is the executive producer of X-Men: First Class?
+Question Category : questions
+{'X-Men: First Class': {'tag': 'TITLE', 'id': 'Q223596'}}
+predicate: ['producer'] ['P162']
+No crowdsourcing data!
+embedings failing
+responses: []
+response: Honestly, I don't know this. :P
+  
+###############################################################
+PredicateRecognition
+'executive producer(P1431)' was not recognized. Instead, it was recognized as a 'producer(P162)'.
+Then, it just passed the step 'crowdsourcing' and had reached to the 'embeddings'
+###############################################################
+  
+  
+Question: What is the box office of The Princess and the Frog?
+What is the box office of The Princess and the Frog?
+Question Category : questions
+search in movies
+{' of The Princess and the Frog': {'tag': 'TITLE', 'id': 'Q466369'}}
+predicate: [] []
+response: Hmmmmm! I am not sure what you mean. Can you rephrase it or ask another question?
+
+###############################################################
+PredicateRecognition
+'box office' was filtered out during the step 'remove entities from predicates'
+msg was changed to 'What is  box fice      ?'
+
+EntityRecognition
+Also, 'The Princess and the Frog' entity was found incorrectly.
+Q466369 : The Princess and the Warrior     //      Q171300 : The Princess and the Frog
+###############################################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+!Results from tmp_crowd_main.py (Expected Output)!
+
+Found crowdsourcing! 267000000(267000000) {'SCORE': 0.55, 'CORRECT': 2, 'INCORRECT': 1, 'FIXING': {}}
+responses: ['267000000']
+
+I think it is 267000000.
+[Crowd, inter-rater agreement 0.55, The answer distribution for this specific task was 2 support votes, 1 reject votes]
+
+
+
+Found crowdsourcing! 2011-01-01(2011-01-01) {'SCORE': 0.04, 'CORRECT': 0, 'INCORRECT': 3, 'FIXING': {'item': 'Object', 'fixval': '2011-01-01', 'count': 3}}
+responses: ['2011-01-01']
+
+I think it is 2011-01-01.
+[Crowd, inter-rater agreement 0.04, The answer distribution for this specific task was 3 reject votes, 0 support votes. Fixing information: 2011-01-01(Object)]
+
+
+
+Found crowdsourcing! sheryl lee ralph(Q457180) {'SCORE': 0.2278325123, 'CORRECT': 2, 'INCORRECT': 1, 'FIXING': {'item': 'Object', 'fixval': 'stan lee', 'count': 1}}
+responses: ['sheryl lee ralph']
+
+I think it is sheryl lee ralph.
+[Crowd, inter-rater agreement 0.2278325123, The answer distribution for this specific task was 2 support votes, 1 reject votes]

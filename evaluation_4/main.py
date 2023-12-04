@@ -27,7 +27,11 @@ questions = [
     "Recommend movies like Nightmare on Elm Street, Friday the 13th, and Halloween.",
     "Recommend movies similar to Hamlet and Othello.",
     "Recommend me some movies of Priyanka Chopra",
-    "Recommend me some movies of Sandra Bullock"
+    "Recommend me some movies of Sandra Bullock",
+    "Can you tell me the publication date of Tom Meets Zizou?", # Crowdsourcing
+    "Who is the executive producer of X-Men: First Class?", # Crowdsourcing
+    "What is the box office of The Princess and the Frog?", # Crowdsourcing
+
 ]
 
 prior_obj = Preprocess()
