@@ -50,7 +50,6 @@ class Multimedia:
                     break
                 else:
                     group_imgs.append(dict)
-        print(group_imgs)
         if img == -1:
             if len(group_imgs) > 0:
                 img = random.choice(group_imgs)["img"]

@@ -5,6 +5,8 @@ import pandas as pd
 from nltk.corpus import stopwords
 from Levenshtein import distance
 
+from utils import remove_substrings
+
 COMMON_PREDICATES = {
     "box office": "P2142",
     "MPAA rating": "P1657",
@@ -29,20 +31,21 @@ class RecognizePredicate:
         if len(predicates) >= 1:
             return (predicates, IDs)
         else:
-            predicates, IDs = self.find_similar_words(cutoff=0.7)
+            # predicates, IDs = self.find_similar_words(cutoff=0.7)
+            # predicates = [] # for now
+            # if len(predicates) >= 1:
+            #     return (predicates, IDs)
+            # else:
+            # predicates, IDs = self.light_search()
+            # if len(predicates) >= 1:
+            #     return (predicates, IDs)
+            # else:
+            predicates, IDs = self.medium_search()
             if len(predicates) >= 1:
                 return (predicates, IDs)
             else:
-                predicates, IDs = self.light_search()
-                if len(predicates) >= 1:
-                    return (predicates, IDs)
-                else:
-                    predicates, IDs = self.medium_search()
-                    if len(predicates) >= 1:
-                        return (predicates, IDs)
-                    else:
-                        predicates, IDs = self.entensive_search(self.prior)
-                        return (predicates, IDs)
+                predicates, IDs = self.entensive_search(self.prior)
+                return (predicates, IDs)
 
     def get_cleaned_input(self, input):
         sentence = input.lower()
@@ -82,6 +85,7 @@ class RecognizePredicate:
             if re.search(row[1]["predicate"], self.msg):
                 predicates.append(row[1]["predicate"])
                 ids.append(row[1]["ID"])
+        predicates, ids = remove_substrings(predicates, ids)
         return predicates, ids
     
     def entensive_search(self, search_from):
@@ -133,4 +137,3 @@ class RecognizePredicate:
                     predicates.append(common)
                     ids.append(COMMON_PREDICATES[common])
         return predicates, ids
-

@@ -80,20 +80,19 @@ class Question:
         return ent_dict
     
     def recognize_predicate(self, ent_dict):
-        # remove entities from predicates
-        msg = self.msg
-        for label in ent_dict:
-            # if entity name is more than one word then remove all words from msg
-            ent_words = label.split(" ")
-            id = ent_dict[label]["id"]
-            if id != -1:
-                # replace all entities from main msg
-                for ent_word in ent_words:
-                    msg = msg.replace(ent_word, "")
-        # print(msg) # Checkpoint... Kaden - Dec 04
+        
+        # for label in ent_dict:
+        #     # if entity name is more than one word then remove all words from msg
+        #     ent_words = label.split(" ")
+        #     id = ent_dict[label]["id"]
+        #     if id != -1:
+        #         # replace all entities from main msg
+        #         for ent_word in ent_words:
+        #             msg = msg.replace(ent_word, "")
+
         # recognize predicates
         all_preds = self.prior_obj.get_all_predicates()
-        rp = RecognizePredicate(msg, prior=all_preds)
+        rp = RecognizePredicate(self.msg, prior=all_preds)
         preds, pred_ids = rp.get_predicate_ID()
         return preds, pred_ids
 
@@ -125,16 +124,16 @@ class Question:
                 score = c_info['SCORE']
                 correct = c_info['CORRECT']
                 incorrect = c_info['INCORRECT']
-                fixing = c_info['FIXING']
+                #fixing = c_info['FIXING']
                 c_info_msg = f"[Crowd, inter-rater agreement {score}, "
                 if correct>=incorrect:
                     c_info_msg += f"The answer distribution for this specific task was {correct} support votes, {incorrect} reject votes]"
                 else:
-                    c_info_msg += f"The answer distribution for this specific task was {incorrect} reject votes, {correct} support votes."
-                    if fixing != {}:
-                        c_info_msg += f" Fixing information: {fixing['fixval']} ({fixing['item']})]"
-                    else:
-                        c_info_msg += "]"
+                    c_info_msg += f"The answer distribution for this specific task was {incorrect} reject votes, {correct} support votes]"
+                    # if fixing != {}:
+                    #     c_info_msg += f" Fixing information: {fixing['fixval']}"
+                    # else:
+                    #     c_info_msg += "]"
                 if i == 0:
                     crowd_info_msg = c_info_msg
                 else:

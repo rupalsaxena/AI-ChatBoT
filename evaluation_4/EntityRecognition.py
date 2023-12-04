@@ -2,6 +2,8 @@ import difflib
 from flair.data import Sentence
 from Constants import SPECIAL_CHARS
 
+manual_fix = {"Weathering with You": "Q59692464"}
+
 class EntityRecognition:
     def __init__(self, input, prior_obj=None):
         self.input = input
@@ -16,9 +18,15 @@ class EntityRecognition:
         self.clean_ent_labels()
         
         for label in self.ent_dict:
-            id = self.emb.getIDfromLabel(label)
+            for key in manual_fix:
+                if label in key:
+                    id = manual_fix[key]
+                else:
+                    id = -1
             if id == -1:
-                id = self.get_id_from_loaded_data(label)
+                id = self.emb.getIDfromLabel(label)
+                if id == -1:
+                    id = self.get_id_from_loaded_data(label)
             self.ent_dict[label]["id"] = id
         print(self.ent_dict)
         return self.ent_dict
@@ -56,17 +64,53 @@ class EntityRecognition:
             return id[0]
         return id
     
+    # def get_id_from_loaded_data(self, label):
+    #     id = -1
+    #     if self.ent_dict[label]["tag"] == "RATING":
+    #         return id
+    #     if self.ent_dict[label]["tag"] == "TITLE":
+    #         print("search in movies")
+    #         movies_df = self.prior_obj.getMovies()
+    #         id = self.match_id(label.lower(), movies_df)
+    #         if id == -1:
+    #             id = self.match_id(label.lower(), movies_df, cutoff=0.4)
+    #     elif self.ent_dict[label]["tag"] == "ACTOR":
+    #         print("search in humans")
+    #         human_df = self.prior_obj.getHumans()
+    #         id = self.match_id(label.lower(), human_df)
+    #         if id == -1:
+    #             id = self.match_id(label.lower(), human_df, cutoff=0.4)
+    #     elif self.ent_dict[label]["tag"] == "GENRE":
+    #         print("search in genres")
+    #         genre_df = self.prior_obj.getGenre()
+    #         id = self.match_id(label.lower(), genre_df)
+    #         if id == -1:
+    #             id = self.match_id(label.lower(), genre_df, cutoff=0.4)
+    #     elif self.ent_dict[label]["tag"] == "CHARACTER":
+    #         print("searching in characters")
+    #         char_df = self.prior_obj.getChars()
+    #         id = self.match_id(label.lower(), char_df)
+    #         if id == -1:
+    #             id = self.match_id(label.lower(), char_df, cutoff=0.4)
+    #     else:
+    #         print("searching in full list")
+    #         all_df = self.prior_obj.getAllEntities()
+    #         id = self.match_id(label.lower(), all_df)
+    #         if id == -1:
+    #             id = self.match_id(label.lower(), all_df, cutoff=0.4)
+    #     return id
+
     def get_id_from_loaded_data(self, label):
         id = -1
         if self.ent_dict[label]["tag"] == "RATING":
             return id
-        if self.ent_dict[label]["tag"] == "TITLE":
-            print("search in movies")
-            movies_df = self.prior_obj.getMovies()
-            id = self.match_id(label.lower(), movies_df)
-            if id == -1:
-                id = self.match_id(label.lower(), movies_df, cutoff=0.4)
-        elif self.ent_dict[label]["tag"] == "ACTOR":
+        # if self.ent_dict[label]["tag"] == "TITLE":
+        #     print("search in movies")
+        #     movies_df = self.prior_obj.getMovies()
+        #     id = self.match_id(label.lower(), movies_df)
+        #     if id == -1:
+        #         id = self.match_id(label.lower(), movies_df, cutoff=0.4)
+        if self.ent_dict[label]["tag"] == "ACTOR":
             print("search in humans")
             human_df = self.prior_obj.getHumans()
             id = self.match_id(label.lower(), human_df)

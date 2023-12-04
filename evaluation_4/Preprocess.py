@@ -17,10 +17,10 @@ class Preprocess:
         self.load_default_data()
         self.load_NER_model()
         self.load_images()
-        self.g = Graphs() # None
         self.question_model = QuestionRecognition()
-        self.embed_obj = Embeddings(self.g.get_graph())
         self.crowd_obj = Crowdsourcing(self.all_entities)
+        self.g = Graphs()
+        self.embed_obj = Embeddings(self.g.get_graph())
         
     def load_NER_model(self):
         print("loading NER model")
