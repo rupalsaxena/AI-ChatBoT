@@ -262,3 +262,74 @@ Can you tell me the publication date of Tom Meets Zizou? ,2023-11-15 14:35:53,I 
 "image of priyanka chopra
 ",2023-11-15 14:59:08,image:1869/rm1672937472,2023-11-15 14:59:08
 who is husband of priyanka chopra,2023-11-15 14:59:25,image:1869/rm1672937472,2023-11-15 14:59:25
+"
+Who is the director of Good Will Hunting? ",2023-12-06 12:28:42,I think it is Gus Van Sant.,2023-12-06 12:28:42
+Who directed The Bridge on the River Kwai? ,2023-12-06 12:29:10,I think it is David Lean.,2023-12-06 12:29:10
+Who is the director of Star Wars: Episode VI - Return of the Jedi?,2023-12-06 12:29:20,I think it is Richard Marquand.,2023-12-06 12:29:21
+Who is the screenwriter of The Masked Gang: Cyprus? ,2023-12-06 12:29:31,"According to embeddings, your answers are Cengiz Küçükayvaz, Murat Aslan, Melih Ekener",2023-12-06 12:29:32
+What is the MPAA film rating of Weathering with You? ,2023-12-06 12:29:43,I think it is NC-17.,2023-12-06 12:29:43
+What is the genre of Good Neighbors? ,2023-12-06 12:29:53,"I think it's  art film, comedy-drama",2023-12-06 12:29:54
+Show me a picture of Halle Berry. ,2023-12-06 12:30:14,image:0353/rm3257480192,2023-12-06 12:30:14
+What does Julia Roberts look like? ,2023-12-06 12:30:25,image:3739/rm3651656960,2023-12-06 12:30:25
+Let me know what Sandra Bullock looks like. ,2023-12-06 12:30:31,image:3866/rm325111296,2023-12-06 12:30:31
+Recommend movies similar to Hamlet and Othello. ,2023-12-06 12:30:46,"Here are some recommendations: Horse Girl, That Evening Sun, The Peanut Butter Falcon, Lost in America, Crazy in Alabama",2023-12-06 12:30:47
+Who is the director of Good Will Hunting? ,2023-12-06 12:31:08,I think it is Gus Van Sant.,2023-12-06 12:31:08
+Who directed The Bridge on the River Kwai? ,2023-12-06 12:31:14,I think it is David Lean.,2023-12-06 12:31:14
+"Given that I like The Lion King, Pocahontas, and The Beauty and the Beast, can you recommend some movies? ",2023-12-06 12:31:20,"Here are some recommendations: Sherlock Holmes, The Lion King: The Gift, Tarzan, Kiara, The Lion King",2023-12-06 12:31:23
+Who is the director of Star Wars: Episode VI - Return of the Jedi?,2023-12-06 12:31:27,I think it is Richard Marquand.,2023-12-06 12:31:28
+"When was ""The Godfather"" released? ",2023-12-06 12:32:03,I think it is 2006-03-21.,2023-12-06 12:32:03
+Who is the screenwriter of The Masked Gang: Cyprus? ,2023-12-06 12:32:29,"According to embeddings, your answers are Cengiz Küçükayvaz, Murat Aslan, Melih Ekener",2023-12-06 12:32:30
+"Recommend movies like Nightmare on Elm Street, Friday the 13th, and Halloween. ",2023-12-06 12:32:32,"Here are some recommendations: A Nightmare on Elm Street 4: The Dream Master, The Hollywood Knights, Final Destination 3, Crystal Lake Memories: The Complete History of Friday the 13th, A Nightmare on Elm Street 5: The Dream Child",2023-12-06 12:32:35
+What is the MPAA film rating of Weathering with You? ,2023-12-06 12:32:39,I think it is NC-17.,2023-12-06 12:32:39
+What is the box office of The Princess and the Frog? ,2023-12-06 12:32:56,"I think it is 267000000.
+[Crowd, inter-rater agreement 0.55, The answer distribution for this specific task was 2 support votes, 1 reject votes]",2023-12-06 12:32:57
+What is the genre of Good Neighbors? ,2023-12-06 12:32:59,"I think it's  art film, comedy-drama",2023-12-06 12:32:59
+Can you tell me the publication date of Tom Meets Zizou? ,2023-12-06 12:33:27,"I think it is 2011-01-01.
+[Crowd, inter-rater agreement 0.04, The answer distribution for this specific task was 3 reject votes, 0 support votes]",2023-12-06 12:33:27
+Show me a picture of Halle Berry. ,2023-12-06 12:33:35,image:0353/rm3257480192,2023-12-06 12:33:35
+What does Julia Roberts look like? ,2023-12-06 12:33:41,image:3739/rm3651656960,2023-12-06 12:33:41
+Who are you,2023-12-06 12:33:41,I don't find any suitable recommendation for you! Do you want me to look for something else?,2023-12-06 12:33:41
+Who is the executive producer of X-Men: First Class?,2023-12-06 12:33:48,"I think it is sheryl lee ralph.
+[Crowd, inter-rater agreement 0.2278325123, The answer distribution for this specific task was 2 support votes, 1 reject votes]",2023-12-06 12:33:48
+Let me know what Sandra Bullock looks like. ,2023-12-06 12:33:50,image:3866/rm325111296,2023-12-06 12:33:50
+Recommend me some anime movies,2023-12-06 12:33:57,"Here are some recommendations: One Piece Movie 9: Episode of Chopper Plus - Fuyu ni Saku, Kiseki no Sakura, Toshiyuki Watanabe, La Luna, Burglars of Baghdad Castle, Kōhei Tanaka",2023-12-06 12:33:57
+Let me show how Rupal looks like,2023-12-06 12:34:09,I don't have any results for this. Is there something else I can search for you?,2023-12-06 12:34:12
+Recommend movies similar to Hamlet and Othello.,2023-12-06 12:34:31,"Here are some recommendations: Nobody's Fool, Unbroken: Path to Redemption, The High Note, Lost in America, The Peanut Butter Falcon",2023-12-06 12:34:32
+"Given that I like The Lion King, Pocahontas, and The Beauty and the Beast, can you recommend some movies? ",2023-12-06 12:34:46,"Here are some recommendations: The Lion King II: Simba's Pride, Chief Powhatan, Nakoma, The Simpsons Movie – The Music, Inception",2023-12-06 12:34:49
+Who are you,2023-12-06 12:40:49,I don't find any suitable recommendation for you! Do you want me to look for something else?,2023-12-06 12:40:50
+Recommend me some anime movies,2023-12-06 12:40:50,"Here are some recommendations: Toshiyuki Watanabe, Kōhei Tanaka, La Luna, Highlander: The Search for Vengeance, Takanori Arisawa",2023-12-06 12:40:51
+Who are you,2023-12-06 12:43:18,I don't find any recommendation for you. Can I help you with something else?,2023-12-06 12:43:19
+Recommend me some anime movies,2023-12-06 12:43:19,"Here are some recommendations: La Luna, Highlander: The Search for Vengeance, Toshiyuki Watanabe, Kōhei Tanaka, Yasuhiro Takemoto",2023-12-06 12:43:20
+Recommend me some anime movies,2023-12-06 12:43:20,"Here are some recommendations: Takanori Arisawa, Kōhei Tanaka, Boruto: Naruto the Movie, Highlander: The Search for Vengeance, Burglars of Baghdad Castle",2023-12-06 12:43:21
+Recommend me some anime movies,2023-12-06 12:51:10,b'Here are some recommendations La Luna Boruto Naruto the Movie Burglars of Baghdad Castle One Piece Movie 9 Episode of Chopper Plus  Fuyu ni Saku Kiseki no Sakura Takanori Arisawa',2023-12-06 12:51:10
+Recommend movies similar to Hamlet and Othello. ,2023-12-06 12:51:31,b'Here are some recommendations Nobodys Fool Dude Bro Party Massacre III The High Note Crazy in Alabama The Peanut Butter Falcon',2023-12-06 12:51:32
+Recommend movies similar to Hamlet and Othello. ,2023-12-06 12:56:56,Here are some recommendations Nobodys Fool Lost in America That Evening Sun Dude Bro Party Massacre III Unbroken Path to Redemption,2023-12-06 12:56:57
+Can you recommend me some movies for Christmas?,2023-12-06 12:57:49,Here are some recommendations Sally When Santa Fell to Earth Christmas film federal holiday Christmas and holiday season,2023-12-06 12:57:49
+Recommend me some anime movies,2023-12-06 12:57:56,Here are some recommendations Highlander The Search for Vengeance Boruto Naruto the Movie Kōhei Tanaka Burglars of Baghdad Castle One Piece Movie 9 Episode of Chopper Plus  Fuyu ni Saku Kiseki no Sakura,2023-12-06 12:57:56
+Can you recommend me some movies for Christmas?,2023-12-06 13:01:10,Here are some recommendations Christmas and holiday season Catholic holy day When Santa Fell to Earth Sally federal holiday,2023-12-06 13:01:11
+Recommend me some anime movies,2023-12-06 13:01:11,Here are some recommendations Takanori Arisawa Yasuhiro Takemoto Toshiyuki Watanabe One Piece Movie 9 Episode of Chopper Plus  Fuyu ni Saku Kiseki no Sakura Boruto Naruto the Movie,2023-12-06 13:01:12
+Can you recommend me some movies for Christmas?,2023-12-06 13:04:12,"Here are some recommendations: crossword, Hanukkah, Christmas film, When Santa Fell to Earth, Catholic holy day",2023-12-06 13:04:13
+Recommend me some anime movies,2023-12-06 13:04:13,"Here are some recommendations: Burglars of Baghdad Castle, Yasuhiro Takemoto, KÅhei Tanaka, Boruto: Naruto the Movie, Highlander: The Search for Vengeance",2023-12-06 13:04:14
+Recommend movies similar to Hamlet and Othello. ,2023-12-06 13:04:41,"Here are some recommendations: Nobody's Fool, That Evening Sun, The High Note, Unbroken: Path to Redemption, Horse Girl",2023-12-06 13:04:42
+"Given that I like Tom Cruise, recommend me some movies",2023-12-06 13:04:46,"Here are some recommendations: Taps, American Made, Space Station 3D, Legend, A Few Good Men",2023-12-06 13:04:46
+"Given that I like The Lion King, Pocahontas, and The Beauty and the Beast, can you recommend some movies? ",2023-12-06 13:04:46,"Here are some recommendations: Kiara, John Smith, Pride Rock, Nala, Mulan",2023-12-06 13:04:49
+"Recommend movies like Nightmare on Elm Street, Friday the 13th, and Halloween. ",2023-12-06 13:05:00,"Here are some recommendations: Hostel: Part II, Crystal Lake Memories: The Complete History of Friday the 13th, Jason X, The Cat in the Hat, A Nightmare on Elm Street",2023-12-06 13:05:03
+"Can you recommend me some movies for Christmas?
+",2023-12-06 13:05:20,"Here are some recommendations: Catholic holy day, white, Christmas and holiday season, Sally, Christmas film",2023-12-06 13:05:20
+"Given that I like Transformers, recommend some movies",2023-12-06 13:05:22,"Here are some recommendations: Transformers: Ghosts of Yesterday, Transformers, Transformers: Age of Extinction, Transformers: The Veiled Threat, Transformers",2023-12-06 13:05:22
+Can you recommend me some action movies released on 2001,2023-12-06 13:05:28,"Here are some recommendations: 2002, 2012, 2001: A Space Odyssey, 2000, 1984",2023-12-06 13:05:29
+Please recommend me some movies similar with The Talented Mr. Ripley,2023-12-06 13:05:43,"Here are some recommendations: Fantastic Rample, Serenity, Miranda, Johnny (The Room), Mr. Universe",2023-12-06 13:05:43
+What is the box office of The Princess and the Frog? ,2023-12-06 13:06:00,"I think it is 267000000.
+[Crowd, inter-rater agreement 0.55, The answer distribution for this specific task was 2 support votes, 1 reject votes]",2023-12-06 13:06:01
+Can you tell me the publication date of Tom Meets Zizou? ,2023-12-06 13:09:56,"I think it is 2011-01-01.
+[Crowd, inter-rater agreement 0.04, The answer distribution for this specific task was 3 reject votes, 0 support votes]",2023-12-06 13:09:56
+Who is the executive producer of X-Men: First Class? ,2023-12-06 13:10:04,"I think it is sheryl lee ralph.
+[Crowd, inter-rater agreement 0.2278325123, The answer distribution for this specific task was 2 support votes, 1 reject votes]",2023-12-06 13:10:05
+Show me a picture of Tom Cruise,2023-12-06 13:10:05,image:1286/rm2122235136,2023-12-06 13:10:05
+Show me a picture of Halle Berry and Hugh Jackman,2023-12-06 13:10:21,image:0488/rm1598593280,2023-12-06 13:10:21
+Recommend me abc,2023-12-06 13:12:46,I don't understand you. Can you rephrase it?,2023-12-06 13:12:46
+"If I like Halloween, recommend some movies",2023-12-06 13:13:07,"Here are some recommendations: Haddonfield, holiday, Samuel Loomis, Laurie Strode, Grey Gardens",2023-12-06 13:13:07
+What is the MPAA film rating of Weathering with You?,2023-12-06 13:13:30,I think it is NC-17.,2023-12-06 13:13:30
+"If I like Halle Berry, recommend some movies",2023-12-06 13:13:43,"Here are some recommendations: Kidnap, Losing Isaiah, Jungle Fever, The Rich Man's Wife, Why Do Fools Fall in Love",2023-12-06 13:13:43
+"If I like Zurich, recommend some cities",2023-12-06 13:19:08,"Here are some recommendations: It's All So Quiet, Guernsey, Management 360, Red Hawk Entertainment, WinterkartoffelknÃ¶del",2023-12-06 13:19:13
+"If I like 12, recommend some movies",2023-12-06 13:19:47,I don't find any recommendation for you. Can I help you with something else?,2023-12-06 13:19:47

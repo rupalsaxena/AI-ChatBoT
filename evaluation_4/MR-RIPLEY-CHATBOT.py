@@ -43,6 +43,8 @@ class Agent:
                     except Exception as err:
                         print(err)
                         reply = DEFAULT_MSG
+                    reply = reply.encode("utf-8", "ignore").decode("utf-8")
+                    reply = bytes(reply, 'utf-8').decode('unicode_escape')
                     room.post_messages(reply)
                     reply_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                     room.mark_as_processed(message)
@@ -72,4 +74,4 @@ if __name__ == '__main__':
     demo_bot = Agent("swelter-animato-kitchen_bot", "sLGLWSn0901EVg", prior_obj)
     demo_bot.listen()
 
-# TODO: from recommendation, find the genre of the movie, based on genre recommend the movies.
+# TODO: Show me a picture of Halle Berry and Hugh Jackman.

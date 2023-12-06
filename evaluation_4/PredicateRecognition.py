@@ -31,15 +31,6 @@ class RecognizePredicate:
         if len(predicates) >= 1:
             return (predicates, IDs)
         else:
-            # predicates, IDs = self.find_similar_words(cutoff=0.7)
-            # predicates = [] # for now
-            # if len(predicates) >= 1:
-            #     return (predicates, IDs)
-            # else:
-            # predicates, IDs = self.light_search()
-            # if len(predicates) >= 1:
-            #     return (predicates, IDs)
-            # else:
             predicates, IDs = self.medium_search()
             if len(predicates) >= 1:
                 return (predicates, IDs)

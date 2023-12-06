@@ -8,7 +8,7 @@ class Graphs:
     def load_graphs(self):
         self.graph = rdflib.Graph()
         print("Please wait while graph is loading ...")
-        self.graph.parse('data/14_graph.nt', format="turtle")
+        self.graph.parse('data/14_graph_updated.nt', format="turtle")
         print("Graph loaded")
     
     def get_graph(self):

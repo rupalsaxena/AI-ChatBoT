@@ -63,42 +63,6 @@ class EntityRecognition:
             id = df['ids'][df['names']==closest_match].tolist()
             return id[0]
         return id
-    
-    # def get_id_from_loaded_data(self, label):
-    #     id = -1
-    #     if self.ent_dict[label]["tag"] == "RATING":
-    #         return id
-    #     if self.ent_dict[label]["tag"] == "TITLE":
-    #         print("search in movies")
-    #         movies_df = self.prior_obj.getMovies()
-    #         id = self.match_id(label.lower(), movies_df)
-    #         if id == -1:
-    #             id = self.match_id(label.lower(), movies_df, cutoff=0.4)
-    #     elif self.ent_dict[label]["tag"] == "ACTOR":
-    #         print("search in humans")
-    #         human_df = self.prior_obj.getHumans()
-    #         id = self.match_id(label.lower(), human_df)
-    #         if id == -1:
-    #             id = self.match_id(label.lower(), human_df, cutoff=0.4)
-    #     elif self.ent_dict[label]["tag"] == "GENRE":
-    #         print("search in genres")
-    #         genre_df = self.prior_obj.getGenre()
-    #         id = self.match_id(label.lower(), genre_df)
-    #         if id == -1:
-    #             id = self.match_id(label.lower(), genre_df, cutoff=0.4)
-    #     elif self.ent_dict[label]["tag"] == "CHARACTER":
-    #         print("searching in characters")
-    #         char_df = self.prior_obj.getChars()
-    #         id = self.match_id(label.lower(), char_df)
-    #         if id == -1:
-    #             id = self.match_id(label.lower(), char_df, cutoff=0.4)
-    #     else:
-    #         print("searching in full list")
-    #         all_df = self.prior_obj.getAllEntities()
-    #         id = self.match_id(label.lower(), all_df)
-    #         if id == -1:
-    #             id = self.match_id(label.lower(), all_df, cutoff=0.4)
-    #     return id
 
     def get_id_from_loaded_data(self, label):
         id = -1

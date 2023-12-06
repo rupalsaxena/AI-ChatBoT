@@ -37,7 +37,12 @@ class Recommend:
                     self.get_reco_from_ent()
         else:
             self.get_reco_from_ent()
-                
+        self.remove_entity_from_response()
+
+    def remove_entity_from_response(self):
+        for ent in self.ent_dict:
+            if ent in self.responses:
+                self.responses.remove(ent)
 
     def get_reco_from_ent(self):
         for label in self.ent_dict:
@@ -68,7 +73,7 @@ class Recommend:
             if len(self.responses) > 6:
                 random.shuffle(self.responses)
                 self.responses = self.responses[0:5]
-            init_resp = "Here are some recommendations:"
+            init_resp = "Here are some recommendations for you: \n"
             response=""
             for i, resp in enumerate(self.responses):
                 if i == 0:

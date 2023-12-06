@@ -27,7 +27,17 @@ questions = [
     "Recommend movies like Nightmare on Elm Street, Friday the 13th, and Halloween.",
     "Recommend movies similar to Hamlet and Othello.",
     "Recommend me some movies of Priyanka Chopra",
-    "Recommend me some movies of Sandra Bullock"
+    "Recommend me some movies of Sandra Bullock",
+    "Recommend me some anime movies",
+    "Given that I like the movie Transformers, recommend me some similar movies.",
+    "I liked the movie Kung Fu Panda, can you recommend 3 similar movies?",
+    "I liked the movie Good Will Hunting, can you recommend 3 similar movies?",
+    "Can you recommend me 3 movies similar to Forest Gump and The Lord of the Rings: The Fellowship of the Ring.",
+    "Can you recommend me some movies with Charlie Chaplin given that I liked The Great Dictator? ",
+    "Show me an image of Robert Zemeckis.",
+    "What was the release year of The Social Network?",
+    "Recommend me movies like Interstellar"
+
 ]
 
 prior_obj = Preprocess()

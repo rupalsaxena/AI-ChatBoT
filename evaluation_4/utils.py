@@ -1,5 +1,11 @@
 import os
 import csv
+import re
+
+def remove_special_characters(input_string):
+    pattern = r'[^\w\s]'
+    clean_string = re.sub(pattern, '', input_string)
+    return clean_string
 
 def log_to_csv(filename, msg, msg_time, reply, reply_time):
     if os.path.exists(filename):
