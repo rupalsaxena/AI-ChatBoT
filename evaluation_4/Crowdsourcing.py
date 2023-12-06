@@ -39,8 +39,12 @@ class Crowdsourcing:
         res = data['Input3ID'].to_list()[0]
         info = copy.deepcopy(data.iloc[0][['SCORE', 'CORRECT', 'INCORRECT', 'FIXING']].to_dict())
         # Change the answer if it has a fixed value
-        if (info['CORRECT']<info['INCORRECT']) and (info['FIXING']['item']=='Object'):
-            res = info['FIXING']['fixval']
+        if (info['CORRECT']<info['INCORRECT']) and (len(info['FIXING'].keys())!=0):
+            if (info['FIXING']['item']=='Object'):
+                old = res
+                res = info['FIXING']['fixval']
+                new = res
+                print(f"Reponse corrected by crowd! from {old} to {new}")
         # Change entity id to label
         res_label = self.entid2label(res)
         info_fix = info['FIXING']
