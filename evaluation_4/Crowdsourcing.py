@@ -7,13 +7,6 @@ import pandas as pd
 from sklearn.metrics import pairwise_distances
 import copy
 
-# TODO:
-# load_crowd_ans_data.csv
-# answer_from_crowd:
-#   input: ent_id, pred_id
-#   output: label, votinginfo, inter-rater score
-
-
 
 class Crowdsourcing:
     def __init__(self, all_entities):
@@ -34,10 +27,12 @@ class Crowdsourcing:
         if sum(search) == 0:
             print("No crowdsourcing data!")
             return None, None
+
         # Get answer
         data = df.loc[search]
         res = data['Input3ID'].to_list()[0]
         info = copy.deepcopy(data.iloc[0][['SCORE', 'CORRECT', 'INCORRECT', 'FIXING']].to_dict())
+
         # Change the answer if it has a fixed value
         if (info['CORRECT']<info['INCORRECT']) and (len(info['FIXING'].keys())!=0):
             if (info['FIXING']['item']=='Object'):
@@ -45,6 +40,7 @@ class Crowdsourcing:
                 res = info['FIXING']['fixval']
                 new = res
                 print(f"Reponse corrected by crowd! from {old} to {new}")
+
         # Change entity id to label
         res_label = self.entid2label(res)
         info_fix = info['FIXING']
@@ -59,7 +55,6 @@ class Crowdsourcing:
         return res_label, info
     
     def entid2label(self, entity_id):
-        # print(entity_id)
         if str(entity_id)[0] == 'Q':
             search = (self.all_entities['ids'] == entity_id)
             if sum(search) == 0:

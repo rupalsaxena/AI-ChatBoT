@@ -2,9 +2,6 @@ import pandas as pd
 import numpy as np
 from statsmodels.stats import inter_rater
 
-#############################################
-# etc.
-#############################################
 def percentile_to_num(p):
     return float(p.split("%")[0])
 
@@ -14,9 +11,6 @@ def reformat_ID(id):
     else:
         return id
 
-#############################################
-# Main Functions
-#############################################
 def formatting(crowd_data:pd.DataFrame):
     crowd_data['LifetimeApprovalRate'] = crowd_data['LifetimeApprovalRate'].apply(percentile_to_num)
     crowd_data['Input1ID'] = crowd_data['Input1ID'].apply(reformat_ID)
@@ -85,7 +79,6 @@ def aggregate_crowd_data(crowd_data:pd.DataFrame):
 
         crowd_data_agg = pd.concat([crowd_data_agg, pd.DataFrame([new_item])], ignore_index=True)
 
-    # crowd_data_agg.head()
     print("Done! - Aggregating Crowd Responses")
     return crowd_data_agg
 

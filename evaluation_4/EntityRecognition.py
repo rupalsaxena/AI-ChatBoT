@@ -68,12 +68,6 @@ class EntityRecognition:
         id = -1
         if self.ent_dict[label]["tag"] == "RATING":
             return id
-        # if self.ent_dict[label]["tag"] == "TITLE":
-        #     print("search in movies")
-        #     movies_df = self.prior_obj.getMovies()
-        #     id = self.match_id(label.lower(), movies_df)
-        #     if id == -1:
-        #         id = self.match_id(label.lower(), movies_df, cutoff=0.4)
         if self.ent_dict[label]["tag"] == "ACTOR":
             print("search in humans")
             human_df = self.prior_obj.getHumans()

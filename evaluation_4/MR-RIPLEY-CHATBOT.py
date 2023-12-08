@@ -73,5 +73,3 @@ if __name__ == '__main__':
     prior_obj = Preprocess()
     demo_bot = Agent("swelter-animato-kitchen_bot", "sLGLWSn0901EVg", prior_obj)
     demo_bot.listen()
-
-# TODO: Show me a picture of Halle Berry and Hugh Jackman.

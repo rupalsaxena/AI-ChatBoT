@@ -17,8 +17,7 @@ def log_to_csv(filename, msg, msg_time, reply, reply_time):
             writer = csv.writer(file)
             writer.writerow(['msg', 'msg_time', 'reply', 'reply_time'])
             writer.writerows([[msg, msg_time, reply, reply_time]])
-    
-    
+
 def remove_substrings(predicates, ids):
     updated_preds = []
     updated_ids = []
