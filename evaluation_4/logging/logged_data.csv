@@ -333,3 +333,49 @@ What is the MPAA film rating of Weathering with You?,2023-12-06 13:13:30,I think
 "If I like Halle Berry, recommend some movies",2023-12-06 13:13:43,"Here are some recommendations: Kidnap, Losing Isaiah, Jungle Fever, The Rich Man's Wife, Why Do Fools Fall in Love",2023-12-06 13:13:43
 "If I like Zurich, recommend some cities",2023-12-06 13:19:08,"Here are some recommendations: It's All So Quiet, Guernsey, Management 360, Red Hawk Entertainment, WinterkartoffelknÃ¶del",2023-12-06 13:19:13
 "If I like 12, recommend some movies",2023-12-06 13:19:47,I don't find any recommendation for you. Can I help you with something else?,2023-12-06 13:19:47
+Who is the director of Good Will Hunting? ,2023-12-08 12:34:35,I think it is Gus Van Sant.,2023-12-08 12:34:36
+Who directed The Bridge on the River Kwai? ,2023-12-08 12:34:44,I think it is David Lean.,2023-12-08 12:34:44
+Who is the director of Star Wars: Episode VI - Return of the Jedi?,2023-12-08 12:35:11,I think it is Richard Marquand.,2023-12-08 12:35:12
+"
+Who is the screenwriter of The Masked Gang: Cyprus? ",2023-12-08 12:35:22,"According to embeddings, your answers are Cengiz KÃ¼Ã§Ã¼kayvaz, Murat Aslan, Melih Ekener",2023-12-08 12:35:23
+What is the MPAA film rating of Weathering with You? ,2023-12-08 12:35:32,I think it is PG-13.,2023-12-08 12:35:32
+What is the genre of Good Neighbors? ,2023-12-08 12:35:40,"I think it's  art film, comedy-drama",2023-12-08 12:35:40
+Show me a picture of Halle Berry. ,2023-12-08 12:35:51,image:0353/rm3257480192,2023-12-08 12:35:51
+What does Julia Roberts look like? ,2023-12-08 12:36:10,image:3739/rm3651656960,2023-12-08 12:36:10
+Let me know what Sandra Bullock looks like. ,2023-12-08 12:36:28,image:3866/rm325111296,2023-12-08 12:36:28
+"
+Recommend movies similar to Hamlet and Othello. ",2023-12-08 12:36:30,"Here are some recommendations for you: 
+ Unbroken: Path to Redemption, Horse Girl, Nobody's Fool, Crazy in Alabama, Lost in America",2023-12-08 12:36:31
+"Given that I like The Lion King, Pocahontas, and The Beauty and the Beast, can you recommend some movies? ",2023-12-08 12:36:44,"Here are some recommendations for you: 
+ The Dark Knight, The Lion King, Zira, Timon and Pumbaa, Dumbo",2023-12-08 12:36:46
+"Recommend movies like Nightmare on Elm Street, Friday the 13th, and Halloween. ",2023-12-08 12:37:03,"Here are some recommendations for you: 
+ Hostel: Part II, Jason X, The Flintstones, Halloween, A Nightmare on Elm Street 4: The Dream Master",2023-12-08 12:37:07
+What is the box office of The Princess and the Frog?,2023-12-08 12:37:15,"I think it is 267000000.
+[Crowd, inter-rater agreement 0.2, The answer distribution for this specific task was 2 support votes, 1 reject votes]",2023-12-08 12:37:16
+Can you tell me the publication date of Tom Meets Zizou? ,2023-12-08 12:37:35,"I think it is 2011-01-01.
+[Crowd, inter-rater agreement 0.04, The answer distribution for this specific task was 3 reject votes, 0 support votes]",2023-12-08 12:37:35
+Who is the executive producer of X-Men: First Class? ,2023-12-08 12:37:43,"I think it is sheryl lee ralph.
+[Crowd, inter-rater agreement 0.19911, The answer distribution for this specific task was 2 support votes, 1 reject votes]",2023-12-08 12:37:44
+photograph of Nick Jonas,2023-12-08 12:38:32,image:0415/rm3290425088,2023-12-08 12:38:32
+"pictures of priyanka chopra and nick jonas
+",2023-12-08 12:38:51,image:1869/rm1672937472,2023-12-08 12:38:52
+send me a foto of priyanka chopra,2023-12-08 12:39:17,image:1869/rm1672937472,2023-12-08 12:39:18
+who is the producer of Lord of The Rings,2023-12-08 12:39:41,Umm! I don't think I understand that! Can I help you in some other way?,2023-12-08 12:39:42
+who is director of Lord of The Rings,2023-12-08 12:40:12,I think it is Ralph Bakshi.,2023-12-08 12:40:13
+who is screenwriter of The Lord of The Rings,2023-12-08 12:40:53,"I think it's  Peter S. Beagle, Chris Conkling, J.Â R.Â R. Tolkien",2023-12-08 12:40:55
+"Recommend me some anime movie
+s",2023-12-08 12:41:54,"Here are some recommendations for you: 
+ Takanori Arisawa, Toshiyuki Watanabe, Perfect Blue, KÅhei Tanaka, Boruto: Naruto the Movie",2023-12-08 12:41:54
+recommend me some movies of Nick Jonas,2023-12-08 12:42:11,"Here are some recommendations for you: 
+ Chaos Walking, Careful What You Wish For, Jumanji: The Next Level, Jonas Brothers: The 3D Concert Experience, Camp Rock 2: The Final Jam",2023-12-08 12:42:11
+Who is the director of Good Will Hunting? ,2023-12-08 12:53:26,I think it is Gus Van Sant.,2023-12-08 12:53:26
+Who is the screenwriter of The Masked Gang: Cyprus? ,2023-12-08 12:53:35,"According to embeddings, your answers are Cengiz KÃ¼Ã§Ã¼kayvaz, Murat Aslan, Melih Ekener",2023-12-08 12:53:35
+"
+Show me a picture of Halle Berry.",2023-12-08 12:53:42,image:0353/rm3257480192,2023-12-08 12:53:42
+"
+Recommend movies similar to Hamlet and Othello. ",2023-12-08 12:53:48,"Here are some recommendations for you: 
+ That Evening Sun, The Peanut Butter Falcon, Crazy in Alabama, Lost in America, Dude Bro Party Massacre III",2023-12-08 12:53:49
+"What is the box office of The Princess and the Frog? 
+
+T",2023-12-08 12:53:55,"I think it is 267000000.
+[Crowd, inter-rater agreement 0.2, The answer distribution for this specific task was 2 support votes, 1 reject votes]",2023-12-08 12:53:56
