@@ -50,7 +50,6 @@ class Agent:
                     room.mark_as_processed(message)
                     log_to_csv(LOG_FILENAME, message.message, msg_time, reply, reply_time)
 
-                
                 # Retrieve reactions from this chat room.
                 # Not using at this moment.
                 # If only_new=True, it filters out reactions that have already been marked as processed.
@@ -60,7 +59,11 @@ class Agent:
                         f"- new reaction #{reaction.message_ordinal}: '{reaction.type}' "
                         f"- {self.get_time()}")
                     # Implement your agent here #
-                    room.post_messages(f"Received your reaction: '{reaction.type}' ")
+                    print(reaction.type)
+                    if reaction.type == "THUMBS_UP" or reaction.type == "STAR":
+                        room.post_messages("Thank you for your encouraging reaction, Have a nice day :)")
+                    elif reaction.type == "THUMBS_DOWN":
+                        room.post_messages("Is there something else, I can help you with?")
                     room.mark_as_processed(reaction)  
             time.sleep(listen_freq)
 

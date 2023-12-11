@@ -70,6 +70,7 @@ class Recommend:
 
     def chooseResponse(self):
         if len(self.responses) > 1:
+            self.responses = list(set(self.responses))
             if len(self.responses) > 6:
                 random.shuffle(self.responses)
                 self.responses = self.responses[0:5]

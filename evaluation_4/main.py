@@ -2,6 +2,8 @@ from Algorithm import getResponse
 from Preprocess import Preprocess
 
 questions = [
+    "Show me a poster of the movie La La Land",
+    "How does Priyanka Chopra look like?",
     '''When was "The Godfather" released?''',
     "HeLp",
     "Hello",

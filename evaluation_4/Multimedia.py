@@ -19,18 +19,20 @@ class Multimedia:
     def process(self):
         er = EntityRecognition(self.msg, prior_obj=self.prior_obj)
         ent_dict = er.process()
-        self.query_results = []
+        self.query_results = {}
 
         for label in ent_dict:
             id = ent_dict[label]["id"]
             if id != -1:
-                self.query_results.extend(self.graph.queryMultimedia(id))
+                response_ids = self.graph.queryMultimedia(id)
+                for response_id in response_ids:
+                    self.query_results[response_id] = ent_dict[label]["tag"]
             else:
                 print("querry multimedia using label")
         
-        id = self.chooseQueryRes()
-        if id != -1:
-            img = self.id2img(id)
+        id, type = self.chooseQueryRes()
+        if id != -1 and type != -1:
+            img = self.id2img(id, type)
         else:
             img = random.choice(DEFAULT_RESPONSE)
 
@@ -40,12 +42,18 @@ class Multimedia:
             self._response = img
 
 
-    def id2img(self, id):
+    def id2img(self, id, type):
         group_imgs=[]
         img = -1
+
+        if type == "TITLE":
+            search = "movie"
+        else:
+            search = "cast"
+
         for dict in self.images:
-            if id in dict["cast"]:
-                if len(dict["cast"]) == 1:
+            if id in dict[search]:
+                if len(dict[search]) == 1:
                     img = dict["img"]
                     break
                 else:
@@ -62,12 +70,14 @@ class Multimedia:
 
     def chooseQueryRes(self):
         if len(self.query_results) > 1:
-            response = random.choice(self.query_results)
+            response, type = random.choice(list(self.query_results.items()))
         elif len(self.query_results) == 0:
             response = -1
+            type = -1
         elif len(self.query_results) == 1:
-            response = self.query_results[0]
-        return response
+            response  = next(iter(self.query_results))
+            type = self.query_results[response]
+        return response, type
     
     def getResponse(self):
         return self._response
