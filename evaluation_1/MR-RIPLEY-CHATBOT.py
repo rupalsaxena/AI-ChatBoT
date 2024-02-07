@@ -86,5 +86,5 @@ class Agent:
 
 
 if __name__ == '__main__':
-    demo_bot = Agent("swelter-animato-kitchen_bot", "sLGLWSn0901EVg")
+    demo_bot = Agent("username", "password")
     demo_bot.listen()

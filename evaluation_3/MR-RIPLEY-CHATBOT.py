@@ -69,7 +69,7 @@ class Agent:
 
 if __name__ == '__main__':
     prior_obj = Preprocess()
-    demo_bot = Agent("swelter-animato-kitchen_bot", "sLGLWSn0901EVg", prior_obj)
+    demo_bot = Agent("username", "password", prior_obj)
     demo_bot.listen()
 
 # TODO: from recommendation, find the genre of the movie, based on genre recommend the movies.
